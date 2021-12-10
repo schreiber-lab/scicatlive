@@ -7,23 +7,25 @@ services:
       - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-  mongodb_seed:
-    image: bitnami/mongodb:4.2
-    volumes:
-      - "./seed_db/seed:/seed"
-      - "./seed_db/mongo_import.sh:/mnt/mongo_import.sh"
-    command: 
-      - "sh"
-      - "-c"
-      - "chmod u+x /mnt/mongo_import.sh && /mnt/mongo_import.sh"
-    user: "1000:1000"
-    depends_on:
-      - mongodb
-    restart: on-failure
+#  mongodb_seed:
+#    image: bitnami/mongodb:4.2
+#    volumes:
+#      - "./seed_db/seed:/seed"
+#      - "./seed_db/mongo_import.sh:/mnt/mongo_import.sh"
+#    command: 
+#      - "sh"
+#      - "-c"
+#      - "chmod u+x /mnt/mongo_import.sh && /mnt/mongo_import.sh"
+#    user: "1000:1000"
+#    depends_on:
+#      - mongodb
+    #restart: on-failure
+#    tty: true
   mongodb:
     image: bitnami/mongodb:4.2
     volumes:
-      - "mongodb_data:/bitnami"
+ #     - "mongodb_data:/bitnami"
+      - "/srv/mongodb:/bitnami/mongodb"
   catamel:
     image: dacat/catamel:latest
     depends_on:
@@ -51,6 +53,6 @@ services:
     environment:
       BASE_URL: "http://catamel:3000/api/v3"
       FACILITY: "SAMPLE-SITE"
-volumes:
-  mongodb_data:
-    driver: local
+#volumes:
+#  mongodb_data:
+#    driver: local
