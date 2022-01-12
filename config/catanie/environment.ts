@@ -7,7 +7,7 @@ import { TableColumn } from "state-management/models";
 
 export const environment = {
   production: true,
-  lbBaseURL: "http://localhost",
+  lbBaseURL: "http://u-017-s197.v263.uni-tuebingen.de",
   fileserverBaseURL: "",
   synapseBaseUrl: "",
   riotBaseUrl: "",
@@ -18,7 +18,7 @@ export const environment = {
   columnSelectEnabled: true,
   datasetReduceEnabled: false,
   disabledDatasetColumns: [],
-  editMetadataEnabled: false,
+  editMetadataEnabled: true,
   editSampleEnabled: true,
   editPublishedData: true,
   facility: "SAMPLE-SITE",
@@ -61,7 +61,7 @@ export const environment = {
   scienceSearchUnitsEnabled: false,
   jobsEnabled: true,
   policiesEnabled: true,
-  editDatasetSampleEnabled: false,
+  editDatasetSampleEnabled: true,
   metadataStructure: "tree",
   loginFormEnabled: true,
   oAuth2Endpoints: [],

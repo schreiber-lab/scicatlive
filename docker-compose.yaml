@@ -23,6 +23,8 @@ services:
 #    tty: true
   mongodb:
     image: bitnami/mongodb:4.2
+    ports:        # port does not need to be exported in production env but good for debug...
+      - "27017:27017"
     volumes:
  #     - "mongodb_data:/bitnami"
       - "/srv/mongodb:/bitnami/mongodb"
@@ -38,7 +40,8 @@ services:
       - "traefik.http.routers.catamel.entrypoints=web"
   catanie:
     build:
-      context: https://github.com/SciCatProject/frontend.git#develop
+      #context: https://github.com/SciCatProject/frontend.git#develop
+      context: https://github.com/SciCatProject/frontend.git#d3d788238ec5f18f6787b1ba2a4b26b0e9ef34f7
     depends_on:
       - catamel
     labels:
